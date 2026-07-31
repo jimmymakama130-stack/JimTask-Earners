@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Submit Task - JimTask Earners{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-lg-7">
+
+        <div class="card shadow-lg border-0">
+            <div class="card-header bg-success text-white">
+                <h3 class="mb-0"><i class="fas fa-upload"></i> Submit Task</h3>
+            </div>
+
+            <div class="card-body">
+
+                <div class="alert alert-info">
+                    <strong>Task:</strong> {{ task.title }}
+                </div>
+
+                <form method="POST" enctype="multipart/form-data">
+
+                    <div class="mb-3">
+                        <label class="form-label">Social Media Username</label>
+                        <input type="text" name="social_name" class="form-control" placeholder="Enter your username" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Upload Screenshot</label>
+                        <input type="file" name="screenshot" class="form-control" accept="image/*" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-success w-100">
+                        <i class="fas fa-paper-plane"></i> Submit Proof
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

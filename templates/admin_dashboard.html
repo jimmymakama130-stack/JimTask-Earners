@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard - JimTask Earners{% endblock %}
+
+{% block content %}
+
+<div class="bg-dark text-white rounded-4 p-4 shadow-lg mb-4">
+    <h2><i class="fas fa-user-shield"></i> Admin Dashboard</h2>
+    <p>Manage JimTask Earners from one place.</p>
+</div>
+
+<div class="row g-4">
+
+    <div class="col-md-3">
+        <a href="/admin/create-task" class="btn btn-success w-100 py-4 shadow">
+            <i class="fas fa-plus-circle fa-2x"></i><br><br>
+            Create Task
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="/admin/manage-tasks" class="btn btn-primary w-100 py-4 shadow">
+            <i class="fas fa-tasks fa-2x"></i><br><br>
+            Manage Tasks
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="/admin/submissions" class="btn btn-warning w-100 py-4 shadow">
+            <i class="fas fa-check-circle fa-2x"></i><br><br>
+            Task Submissions
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="/admin/manage-withdrawals" class="btn btn-danger w-100 py-4 shadow">
+            <i class="fas fa-money-bill-wave fa-2x"></i><br><br>
+            Withdrawals
+        </a>
+    </div>
+
+</div>
+
+<div class="row g-4 mt-2">
+
+    <div class="col-md-6">
+        <a href="/admin/manage-users" class="btn btn-info w-100 py-4 shadow text-white">
+            <i class="fas fa-users fa-2x"></i><br><br>
+            Manage Users
+        </a>
+    </div>
+
+    <div class="col-md-6">
+        <a href="/admin/logout" class="btn btn-secondary w-100 py-4 shadow">
+            <i class="fas fa-sign-out-alt fa-2x"></i><br><br>
+            Logout
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

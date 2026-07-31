@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Referrals - JimTask Earners{% endblock %}
+
+{% block content %}
+
+<div class="bg-warning text-dark rounded-4 p-4 shadow-lg mb-4">
+    <h2><i class="fas fa-user-friends"></i> Referral Program</h2>
+    <p>Earn <strong>₦50</strong> for every successful referral.</p>
+</div>
+
+<div class="row">
+
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-lg border-0">
+            <div class="card-header bg-success text-white">
+                <h4>Your Referral Link</h4>
+            </div>
+
+            <div class="card-body">
+                <input type="text"
+                       class="form-control"
+                       value="{{ referral_link }}"
+                       readonly>
+
+                <button class="btn btn-primary w-100 mt-3">
+                    <i class="fas fa-copy"></i> Copy Referral Link
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-lg border-0">
+            <div class="card-header bg-primary text-white">
+                <h4>Referral Wallet</h4>
+            </div>
+
+            <div class="card-body text-center">
+                <h1 class="text-success">₦{{ referral_wallet }}</h1>
+                <p>Total Successful Referrals</p>
+                <h3>{{ total_referrals }}</h3>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Available Tasks - JimTask Earners{% endblock %}
+
+{% block content %}
+
+<div class="bg-primary text-white p-4 rounded-4 shadow mb-4">
+    <h2 class="fw-bold"><i class="fas fa-tasks"></i> Available Tasks</h2>
+    <p class="mb-0">Complete any task below and submit your proof to earn rewards.</p>
+</div>
+
+<div class="row">
+    {% for task in tasks %}
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-lg border-0 h-100">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0">{{ task.title }}</h5>
+            </div>
+
+            <div class="card-body">
+                <p><strong>Description:</strong><br>{{ task.description }}</p>
+
+                <p><strong>Reward:</strong>
+                    <span class="badge bg-warning text-dark">₦{{ task.amount }}</span>
+                </p>
+
+                <p><strong>Workers Needed:</strong> {{ task.workers_needed }}</p>
+
+                <a href="{{ task.link }}" target="_blank" class="btn btn-primary">
+                    <i class="fas fa-external-link-alt"></i> Open Task
+                </a>
+
+                <a href="/submit_task/{{ task.id }}" class="btn btn-success">
+                    <i class="fas fa-upload"></i> Submit Proof
+                </a>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="col-12">
+        <div class="alert alert-warning text-center">
+            No tasks are available at the moment.
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

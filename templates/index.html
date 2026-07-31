@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Home - JimTask Earners{% endblock %}
+
+{% block content %}
+
+<div class="text-center py-5">
+    <h1 class="display-4 fw-bold text-success">Welcome to JimTask Earners</h1>
+    <p class="lead mt-3">
+        Complete simple social media tasks, earn money, invite friends, and withdraw your earnings.
+    </p>
+
+    <div class="mt-4">
+        <a href="/register" class="btn btn-success btn-lg me-2">
+            <i class="fas fa-user-plus"></i> Register
+        </a>
+
+        <a href="/login" class="btn btn-outline-success btn-lg">
+            <i class="fas fa-sign-in-alt"></i> Login
+        </a>
+    </div>
+</div>
+
+<div class="row mt-5">
+
+    <div class="col-md-4 mb-4">
+        <div class="card shadow h-100 text-center">
+            <div class="card-body">
+                <i class="fas fa-tasks fa-3x text-success mb-3"></i>
+                <h4>Complete Tasks</h4>
+                <p>Perform available tasks and submit proof to earn rewards.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card shadow h-100 text-center">
+            <div class="card-body">
+                <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                <h4>Earn Referral Bonus</h4>
+                <p>Receive <strong>₦50</strong> for every successful referral.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card shadow h-100 text-center">
+            <div class="card-body">
+                <i class="fas fa-wallet fa-3x text-warning mb-3"></i>
+                <h4>Fast Withdrawals</h4>
+                <p>Withdraw from your Task Wallet or Referral Wallet after meeting the limits.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

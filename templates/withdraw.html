@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block title %}Withdraw - JimTask Earners{% endblock %}
+
+{% block content %}
+
+<div class="bg-danger text-white rounded-4 p-4 shadow-lg mb-4">
+    <h2><i class="fas fa-money-bill-wave"></i> Withdraw Funds</h2>
+    <p>Select the wallet you want to withdraw from.</p>
+</div>
+
+<div class="row">
+
+    <div class="col-lg-5 mb-4">
+        <div class="card shadow-lg border-0">
+            <div class="card-header bg-success text-white">
+                <h4>Withdrawal Request</h4>
+            </div>
+
+            <div class="card-body">
+
+                <form method="POST">
+
+<div class="card mb-3">
+    <div class="card-header bg-primary text-white">
+        Withdrawal Account Details
+    </div>
+
+    <div class="card-body">
+
+        <div class="mb-3">
+            <label class="form-label">Bank</label>
+            <select name="bank" class="form-select" required>
+                <option value="">Select Bank</option>
+                <option value="Opay">Opay</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Account Name</label>
+            <input type="text" name="account_name" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Account Number</label>
+            <input type="text" name="account_number" class="form-control" maxlength="10" required>
+        </div>
+
+    </div>
+</div>                
+
+    <div class="mb-3">
+                        <label class="form-label">Select Wallet</label>
+                        <select name="wallet" class="form-select" required>
+                            <option value="">Choose Wallet</option>
+                            <option value="task">Task Wallet (₦250 - ₦2,000)</option>
+                            <option value="referral">Referral Wallet (₦500 - ₦2,500)</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Amount (₦)</label>
+                        <input type="number" name="amount" class="form-control" required>
+                    </div>
+
+                    <button class="btn btn-success w-100">
+                        Submit Withdrawal
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-7">
+        <div class="card shadow-lg border-0">
+            <div class="card-header bg-primary text-white">
+                <h4>Withdrawal History</h4>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped mb-0">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Wallet</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for withdrawal in withdrawals %}
+                    <tr>
+                        <td>{{ withdrawal.date }}</td>
+                        <td>{{ withdrawal.wallet }}</td>
+                        <td>₦{{ withdrawal.amount }}</td>
+                        <td>
+                            {% if withdrawal.status == "Pending" %}
+                                <span class="badge bg-warning">Pending</span>
+                            {% elif withdrawal.status == "Approved" %}
+                                <span class="badge bg-success">Approved</span>
+                            {% else %}
+                                <span class="badge bg-danger">Rejected</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="4" class="text-center">
+                            No withdrawal history.
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

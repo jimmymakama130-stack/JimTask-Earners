@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - JimTask Earners{% endblock %}
+
+{% block content %}
+
+<div class="bg-success text-white rounded-4 p-4 shadow-lg mb-4">
+    <h2 class="fw-bold">Welcome, {{ user.username if user else "User" }} 👋</h2>
+    <p class="mb-0">Complete tasks, earn rewards and withdraw your earnings.</p>
+</div>
+
+<div class="row g-4">
+
+    <div class="col-md-4">
+        <div class="card border-0 shadow-lg bg-primary text-white">
+            <div class="card-body text-center">
+                <i class="fas fa-wallet fa-3x mb-3"></i>
+                <h5>Task Wallet</h5>
+                <h2>₦{{ task_wallet if task_wallet else 0 }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card border-0 shadow-lg bg-warning text-dark">
+            <div class="card-body text-center">
+                <i class="fas fa-user-friends fa-3x mb-3"></i>
+                <h5>Referral Wallet</h5>
+                <h2>₦{{ referral_wallet if referral_wallet else 0 }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card border-0 shadow-lg bg-danger text-white">
+            <div class="card-body text-center">
+                <i class="fas fa-users fa-3x mb-3"></i>
+                <h5>Total Referrals</h5>
+                <h2>{{ total_referrals if total_referrals else 0 }}</h2>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row g-4 mt-2">
+
+    <div class="col-md-3">
+        <a href="/tasks" class="btn btn-success w-100 py-3 shadow">
+            <i class="fas fa-tasks"></i><br>
+            Available Tasks
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="/withdraw" class="btn btn-primary w-100 py-3 shadow">
+            <i class="fas fa-money-bill-wave"></i><br>
+            Withdraw
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="/referrals" class="btn btn-warning w-100 py-3 shadow">
+            <i class="fas fa-share-alt"></i><br>
+            Referrals
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="/login" class="btn btn-danger w-100 py-3 shadow">
+            <i class="fas fa-sign-out-alt"></i><br>
+            Logout
+        </a>
+    </div>
+
+</div>
+
+<div class="card shadow-lg border-0 mt-5">
+    <div class="card-header bg-dark text-white">
+        <h4 class="mb-0">Referral Link</h4>
+    </div>
+    <div class="card-body">
+        <input type="text" class="form-control"
+               value="{{ referral_link if referral_link else 'Your referral link will appear here.' }}"
+               readonly>
+        <small class="text-muted">Earn ₦50 for every successful referral.</small>
+    </div>
+</div>
+
+<div class="card shadow-lg border-0 mt-4">
+    <div class="card-header bg-info text-white">
+        <h4 class="mb-0">Latest Notice</h4>
+    </div>
+    <div class="card-body">
+        Welcome to <strong>JimTask Earners</strong>. Complete tasks, submit valid proof, and earn rewards.
+    </div>
+</div>
+
+{% endblock %}
