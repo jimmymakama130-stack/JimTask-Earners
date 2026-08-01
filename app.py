@@ -10,7 +10,7 @@ import uuid
 app = Flask(__name__)
 
 app.config["SECRET_KEY"] = "jimtask_secret_key_2026"
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://jimtask_db_user:0bsRf5N9QX3Qejc6NYUYm7B4GSz8qzDC@dpg-d9mov7942hec73e6qbfg-a.virginia-postgres.render.com/jimtask_db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql+psycopg://jimtask_db_user:0bsRf5N9QX3Qejc6NYUYm7B4GSz8qzDC@dpg-d9mov7942hec73e6qbfg-a.virginia-postgres.render.com/jimtask_db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 UPLOAD_FOLDER = "static/uploads/screenshots"
