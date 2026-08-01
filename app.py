@@ -142,14 +142,12 @@ def register():
 
         db.session.add(user)
 
-        if referral:
-            referrer = User.query.filter_by(referral_code=referral).first()
-            if referrer:
-                referrer.total_referrals += 1
-                referrer.referral_wallet += 50
+if referral:
+    referrer = User.query.filter_by(referral_code=referral).first()
+    if referrer:
+        pass
 
-        db.session.commit()
-
+db.session.commit()
         flash("Registration successful. Please login.", "success")
         return redirect(url_for("login"))
 
